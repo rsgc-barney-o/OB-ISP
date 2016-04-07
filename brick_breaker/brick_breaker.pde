@@ -45,6 +45,23 @@ void draw() {
     speedX *= -1;
   }
   
+  //make ball bounce when it hits bottom edge of screen
+  if (y > 600){
+    speedY *= -1;
+  }
+  
+  //make ball bounce off left edge
+  if (x < 0){
+    speedX *= -1;
+  }
+  
+    //make ball bounce off left edge
+  if (y < 0){
+    speedY *= -1;
+  }
+  
+  
+  
  
  
   
