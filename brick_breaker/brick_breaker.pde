@@ -3,6 +3,7 @@ float y;
 float x;
 int speedX;
 int speedY;
+boolean moveLeft, moveRight;
 
 
 void setup() {
@@ -27,42 +28,46 @@ void draw() {
 
 
 
- 
+
   //make circle
   ellipse(x, y, 10, 10);
-  
 
-  //make rect that ball bouces off
-  translate(mouseX, 0);
-  rect(0, 500, 60, 10);
+  {
+    //make rect move with mouse
+    translate(mouseX, 0);
+    rect(0, 500, 60, 10);
+    
+  }
+      if(y>=500){
+      y*=-1;
+    }
+    
+  
+    
 
   // speed
   x = x + speedX;
   y = y + speedY;
-  
+
   //making ball bounce when it hits he right edge of the screen
-  if (x > 400){
+  if (x > 400) {
     speedX *= -1;
   }
-  
+
   //make ball bounce when it hits bottom edge of screen
-  if (y > 600){
+  if (y > 600) {
     speedY *= -1;
   }
-  
+
   //make ball bounce off left edge
-  if (x < 0){
+  if (x < 0) {
     speedX *= -1;
   }
-  
-    //make ball bounce off left edge
-  if (y < 0){
+
+  //make ball bounce off left edge
+  if (y < 0) {
     speedY *= -1;
+    
+    
   }
-  
-  
-  
- 
- 
-  
 }
