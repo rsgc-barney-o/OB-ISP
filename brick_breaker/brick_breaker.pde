@@ -26,28 +26,22 @@ void draw() {
   println("in the draw function, x has this value: ");
   println(x);
 
-
-
-
   //make circle
   ellipse(x, y, 10, 10);
+  
+  // speed
+  x = x + speedX;
+  y = y + speedY;
 
   {
     //make rect move with mouse
     translate(mouseX, 0);
     rect(0, 500, 60, 10);
-    
   }
-      if(y>=500){
-      y*=-1;
-    }
-    
-  
-    
 
-  // speed
-  x = x + speedX;
-  y = y + speedY;
+  if (y>=500) {
+    y+=-1;
+  }
 
   //making ball bounce when it hits he right edge of the screen
   if (x > 400) {
@@ -67,7 +61,13 @@ void draw() {
   //make ball bounce off left edge
   if (y < 0) {
     speedY *= -1;
-    
-    
+  }
+  
+  //ball bounces of paddle
+  
+  if (y >= 495 && y <= 505) {
+    if (x >= mouseX && x <= mouseX + 60) {
+     speedY *= -1;
+    }
   }
 }
